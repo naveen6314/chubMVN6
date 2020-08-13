@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2398fa23-f6e1-4740-b4c4-037d76c1f211" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-deploy-6Flow" doc:id="600514f6-6ab5-436a-be36-3de5d9165ce5" >
+		<http:listener doc:name="Listener" doc:id="66f3dccc-a065-4adc-b654-9dd36ad83713" config-ref="HTTP_Listener_config" path="/deploy6"/>
+		<set-payload value="#['practice for jenkins deployment']" doc:name="Set Payload" doc:id="54743eb0-4145-4029-8e60-48e455cac57e" />
+		<logger level="INFO" doc:name="Logger" doc:id="146bd0d6-ea1a-464d-8346-d94c1576a83d" message="#[payload]"/>
+	</flow>
+</mule>
